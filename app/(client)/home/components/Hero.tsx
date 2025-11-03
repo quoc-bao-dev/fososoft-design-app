@@ -230,12 +230,13 @@ const Hero = () => {
                 }}
               />
 
-              <Link
-                href="/du-an"
+              <a
+                href="https://fososoft.com/du-an"
+                target="_blank"
                 className="w-fit whitespace-nowrap border-gradient-button-no-bg-orange border-[#FAC1B7] bg-white rounded-full px-5 py-2.5 md:py-4 lg:py-[18px] xl:py-[13px] 2xl:py-[18px] text-sm font-medium shadow-[0px_1px_2px_0px_#B3ADAD0D,0px_4px_4px_0px_#B3ADAD0A,0px_9px_5px_0px_#B3ADAD08,0px_16px_6px_0px_#B3ADAD03,0px_25px_7px_0px_#B3ADAD00]"
               >
                 Xem chi tiết dự án
-              </Link>
+              </a>
             </div>
           </div>
           {slidesLength > 0 ? (

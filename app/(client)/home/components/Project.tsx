@@ -27,12 +27,13 @@ const ShowMoreProject = ({ dataProjects }: { dataProjects: any[] }) => {
         <p className="text-title font-extrabold capitalize text-[#050505] text-center">
           Xem thêm các dự án khác
         </p>
-        <Link
-          href="/du-an"
+        <a
+          href="https://fososoft.com/du-an"
+          target="_blank"
           className="text-button border-gradient-button-no-bg-orange text-base-default text-[#25272A] font-semibold bg-white py-2 px-5 rounded-full border border-light-300 shadow-[0px_1px_2px_0px_#B3ADAD0D,0px_4px_4px_0px_#B3ADAD0A,0px_9px_5px_0px_#B3ADAD08,0px_16px_6px_0px_#B3ADAD03,0px_25px_7px_0px_#B3ADAD00]"
         >
           Xem thêm
-        </Link>
+        </a>
       </div>
     </motion.div>
   );
@@ -140,12 +141,13 @@ const Project = () => {
                 />
               </div>
               <div className="flex flex-col gap-2 xl:gap-4 items-center justify-center">
-                <Link
-                  href={`/du-an/${project?.slug}`}
+                <a
+                  href={`https://fososoft.com/du-an/${project?.slug}`}
+                  target="_blank"
                   className="text-xs border-gradient-button-no-bg-orange xl:text-base font-bold bg-gradient-to-r from-[#F3654A] to-[#FFB9AC] transition-all duration-300 border border-orange-300 rounded-full py-1 xl:py-2 px-4 text-white shadow-[0px_-1px_2px_0px_#FFFFFF4D_inset,0px_-2px_5px_1px_#FFFFFF1F_inset,0px_1px_2px_0px_#151A364D_inset,0px_2px_6px_0px_#151A3626_inset,0px_-2px_14px_0px_#FFFFFF26_inset,0px_20px_26px_-8px_#0F163A26]"
                 >
                   Xem chi tiết
-                </Link>
+                </a>
                 <Image
                   src={project.qr}
                   alt="qr"
@@ -163,12 +165,13 @@ const Project = () => {
         </motion.div>
       )}
 
-      <Link
-        href="/du-an"
+      <a
+        href="https://fososoft.com/du-an"
+        target="_blank"
         className="xl:hidden text-button w-fit mx-auto text-base-default text-[#25272A] font-semibold bg-white py-2 px-5 rounded-full border border-light-300 shadow-[0px_1px_2px_0px_#B3ADAD0D,0px_4px_4px_0px_#B3ADAD0A,0px_9px_5px_0px_#B3ADAD08,0px_16px_6px_0px_#B3ADAD03,0px_25px_7px_0px_#B3ADAD00]"
       >
         Xem thêm
-      </Link>
+      </a>
     </div>
   );
 };
