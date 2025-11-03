@@ -4,10 +4,9 @@ import { ActionTooltip } from "@/components/common/tooltip/ActionTooltip";
 import SubmenuTooltip from "@/components/common/tooltip/SubmenuTooltip";
 import { IMenuHeader } from "@/types/ui/menu/IMenuUI";
 import { variantButtonScaleZoom } from "@/utils/animations/variantsAnimation";
-import { scrollToTop } from "@/utils/scroll/scrollUtils";
+import { handleHeaderMenuClick, scrollToTop } from "@/utils/scroll/scrollUtils";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
@@ -167,7 +166,12 @@ const FosoDesktopHeader = ({
                   </div>
                 </ActionTooltip>
               ) : (
-                <Link href={item.link} className="inline-flex relative">
+                <div
+                  className="inline-flex relative cursor-pointer"
+                  onClick={() =>
+                    handleHeaderMenuClick(item.link, pathname, router)
+                  }
+                >
                   <HoverEffect
                     title={item.name}
                     hoverTitle={item.name}
@@ -182,7 +186,7 @@ const FosoDesktopHeader = ({
                   {isActive && item.link !== "/" && (
                     <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 size-2 rounded-full bg-[#1AD598] z-[999]" />
                   )}
-                </Link>
+                </div>
               )}
             </React.Fragment>
           );

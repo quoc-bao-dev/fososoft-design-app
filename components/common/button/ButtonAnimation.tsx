@@ -80,7 +80,9 @@ const ButtonAnimation = forwardRef<HTMLButtonElement, Props>(
         )}
 
         {!hideTitle && (
-          <span className="flex items-center w-full text-center">{title}</span>
+          <span className="flex items-center w-full text-center font">
+            {title}
+          </span>
         )}
 
         {reverse && icon && (
