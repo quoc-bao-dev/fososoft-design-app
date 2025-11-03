@@ -1,11 +1,11 @@
-import { JSX } from "react";
-import { FormatPhoneNumberCountry } from "@/utils/format/FormatNumber";
-import PhoneLink from "../../../common/contact-links/PhoneLink";
-import EmailLink from "../../../common/contact-links/EmailLink";
-import InfoSection from "../elements/InfoSection";
 import { useResizeStore } from "@/stores/useResizeStore";
 import { SocialMediaItem } from "@/types/social-media/ISocialMedia";
+import { FormatPhoneNumberCountry } from "@/utils/format/FormatNumber";
+import { JSX } from "react";
+import EmailLink from "../../../common/contact-links/EmailLink";
+import PhoneLink from "../../../common/contact-links/PhoneLink";
 import SocialMediaList from "../../../common/social/SocialMediaList";
+import InfoSection from "../elements/InfoSection";
 
 interface CompanyInfoItem {
   label: string;
