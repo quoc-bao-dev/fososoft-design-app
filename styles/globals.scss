@@ -1,0 +1,1229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+canvas {
+  outline: none;
+}
+
+.marquee-container > * {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.article-content {
+  ol,
+  ul,
+  menu {
+    list-style: revert; /* Hoặc bạn có thể để list-style mặc định */
+    margin: revert; /* Trả về giá trị mặc định của trình duyệt */
+    padding: revert; /* Trả về giá trị mặc định của trình duyệt */
+  }
+}
+
+.disable-selection {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+// html {
+//   overflow: auto !important;
+//   height: auto !important;
+// }
+
+* {
+  max-width: 100%; /* Tránh layout mở rộng quá khung nhìn */
+  box-sizing: border-box; /* Đảm bảo padding/margin không làm bành trướng width */
+}
+
+/* Tối ưu hóa performance */
+* {
+  will-change: auto; /* Chỉ set will-change khi cần thiết */
+}
+
+/* Tối ưu hóa cho animations */
+.animate-performance {
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Giảm repaints và reflows */
+.smooth-transition {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+::-webkit-scrollbar {
+  @apply absolute top-0 right-0 bottom-0 w-4 h-0;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#F1F5F7];
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-color);
+}
+
+.mask-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(255, 255, 255, 1) 68%
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+iframe[title="recaptcha challenge expires in two minutes"] {
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+  position: fixed !important;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.custom-tailwind {
+  .custom-transition {
+    @apply duration-300 transition-all ease-in-out;
+  }
+
+  .custom-transition-colors {
+    @apply duration-500 transition-colors ease-in-out;
+  }
+
+  .custom-container {
+    @apply 3xl:mx-60 xxl:mx-40 xl:mx-32 lg:mx-10 md:mx-8 mx-2 4xl:px-[10%];
+  }
+
+  .custom-container-new {
+      @apply 3xl:mx-60 xxl:mx-40 xl:mx-32 lg:mx-10 md:mx-8 mx-4 4xl:px-[10%];
+  }
+
+  .custom-container-no-right {
+    @apply 3xl:ml-60 xxl:ml-40 xl:ml-32 lg:ml-10 md:ml-8 ml-4 4xl:px-[10%];
+  }
+
+  .custom-container-no-left {
+    @apply 3xl:mr-60 xxl:mr-40 xl:mr-32 lg:mr-10 md:mr-8 mr-4 4xl:px-[10%];
+  }
+
+  .custom-padding-right {
+    @apply 3xl:pr-20 xxl:pr-24 xl:pr-20 lg:pr-16 md:pr-8 pr-4 4xl:px-[10%];
+  }
+
+  .custom-padding-section {
+    @apply 3xl:py-24 xl:py-20 lg:py-16 py-8;
+  }
+
+  .custom-padding-section2 {
+    @apply 3xl:py-24 xl:py-20 lg:py-16 py-12;
+  }
+}
+
+.custom-size-text {
+  // chỉ sử dụng cho section nổi bật
+  .text-title-section {
+    @apply 3xl:text-[64px] 2xl:text-[54px] xxl:text-[52px] xl:text-[48px] lg:text-[40px] md:text-[38px] text-[26px] 3xl:!leading-[94px] 2xl:!leading-[84px] xxl:!leading-[80px] xl:!leading-[80px] lg:!leading-[70px] md:!leading-[60px] !leading-[36px] tracking-normal;
+  }
+
+  .text-title-section-1 {
+    @apply 3xl:text-[64px] 2xl:text-[54px] xxl:text-[52px] xl:text-[48px] lg:text-[40px] md:text-[38px] text-[26px] leading-[120%] tracking-normal;
+  }
+
+  .text-title-section-2 {
+    @apply 3xl:text-[54px] 2xl:text-[44px] xxl:text-[42px] xl:text-[40px] lg:text-[36px] md:text-[32px] text-[26px] leading-[150%] tracking-normal;
+  }
+
+  .text-title-section-medium {
+    @apply 3xl:text-[48px] 2xl:text-[40px] xxl:text-[38px] xl:text-[34px] md:text-[32px] text-[24px] 3xl:!leading-[72px] 2xl:!leading-[64px] xxl:!leading-[60px] xl:!leading-[56px] md:!leading-[52px] !leading-[150%] tracking-[-2%];
+  }
+
+  .text-title-section-medium-fit-leading {
+    @apply 3xl:text-[48px] 2xl:text-[40px] xxl:text-[38px] xl:text-[34px] md:text-[32px] text-[24px] leading-[120%] tracking-[-2%];
+  }
+
+  .text-title-section-small {
+    @apply 3xl:text-[36px] 2xl:text-[32px] xxl:text-[30px] xl:text-[28px] md:text-[28px] text-[24px] 3xl:!leading-[56px] 2xl:!leading-[46px] xxl:!leading-[46px] xl:!leading-[42px] md:!leading-[38px] !leading-[34px] tracking-[-2%];
+  }
+
+  .text-title-section-feature {
+    @apply 3xl:text-[32px] 2xl:text-[28px] xxl:text-[28px] xl:text-[26px] md:text-[24px] text-[20px] 3xl:!leading-[42px] 2xl:!leading-[38px] xxl:!leading-[38px] xl:!leading-[36px] md:!leading-[36px] !leading-[34px] tracking-[-2%];
+  }
+
+  .text-title-section-feature-small {
+    @apply 3xl:text-[28px] 2xl:text-[24px] xxl:text-[24px] xl:text-[22px] md:text-[20px] text-[18px] 3xl:!leading-[38px] 2xl:!leading-[34px] xxl:!leading-[34px] xl:!leading-[32px] md:!leading-[32px] !leading-[30px] tracking-[-2%];
+  }
+
+  .text-title {
+    @apply 3xl:!text-2xl xl:!text-xl lg:!text-lg !text-sm !tracking-[2%];
+  }
+
+  .text-title-feature {
+    @apply 3xl:!text-xl lg:!text-base !text-base !tracking-[1%];
+  }
+  .text-base-default-feature {
+    @apply 3xl:!text-lg xl:!text-sm lg:!text-sm text-sm !tracking-[1%];
+  }
+
+  .text-button {
+    @apply 3xl:!text-xl xl:!text-lg lg:!text-base !text-xl !tracking-[1%];
+  }
+
+  .text-base-default {
+    @apply 3xl:!text-lg xl:!text-base !text-sm !tracking-[1%];
+  }
+
+  .text-sm-default {
+    @apply 3xl:!text-base xxl:!text-sm lg:!text-xs text-sm !tracking-[1%];
+  }
+
+  .text-xs-default {
+    @apply 3xl:!text-sm xl:!text-xs lg:!text-[11px] !text-sm !tracking-[1%];
+  }
+
+  .text-sxs-default {
+    @apply 3xl:!text-xs xl:!text-[10px] lg:!text-[10px] !text-xs !tracking-[1%];
+  }
+
+  .text-table-default {
+    @apply 3xl:!text-lg xl:!text-base lg:!text-sm !text-sm !tracking-[1%];
+  }
+
+  .text-sm-table-default {
+    @apply 3xl:!text-base xl:!text-sm lg:!text-xs !text-xs !tracking-[1%];
+  }
+
+  .text-xs-table-default {
+    @apply 3xl:!text-sm xl:!text-xs lg:!text-xs !text-[11px] !tracking-[1%];
+  }
+
+  .text-custom-href a[href] {
+    @apply underline text-blue-800;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.border-gradient {
+  --border-width: 1px;
+  --border-width-hover: 2px;
+
+  .border-gradient-gray {
+    --border-radius: 6px;
+    --border-width: 1px;
+    --border-color: rgba(9, 9, 11, 0.2);
+
+    position: relative;
+    display: inline-block;
+    border-radius: var(--border-radius);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: linear-gradient(
+        180deg,
+        var(--border-color) 0%,
+        rgba(9, 9, 11, 0.05) 16%,
+        rgba(9, 9, 11, 0.05) 86%,
+        rgba(9, 9, 11, 0) 100%
+      );
+      pointer-events: none;
+      z-index: -1;
+
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: destination-out;
+    }
+  }
+
+  .border-gradient-button-foso {
+    --border-color: rgba(9, 9, 11, 0.2);
+
+    position: relative;
+    border: none; /* Đảm bảo không có border mặc định */
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: radial-gradient(
+        50% 93.75% at 50% 6.25%,
+        #a3eed6 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      pointer-events: none;
+      z-index: 1;
+
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor; /* hoặc destination-out */
+      transition: background 0.5s ease-in-out;
+    }
+
+    &:hover::before {
+      background: conic-gradient(
+        from var(--angle),
+        #a3eed6,
+        rgba(255, 255, 255, 0),
+        #a3eed6
+      );
+      padding: var(--border-width-hover);
+      animation: borderMove 1.5s linear infinite;
+    }
+  }
+
+  .border-gradient-button-no-bg-foso {
+    --border-radius: 6px;
+    --border-width: 1px;
+    --border-width-hover: 2px;
+    --border-color: rgba(9, 9, 11, 0.2);
+
+    position: relative;
+    border: none; /* Đảm bảo không có border mặc định */
+
+    /* Viền gradient chạy quanh */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0px;
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: "#10805B";
+      // background: radial-gradient(50% 93.75% at 50% 6.25%, #a3eed6 0%, rgba(255, 255, 255, 0) 100%);
+
+      background: linear-gradient(77.74deg, #10805b, #10805b);
+
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor; /* hoặc destination-out */
+      z-index: 0;
+      transition: background 0.5s ease-in-out;
+    }
+
+    &:hover::before {
+      background: conic-gradient(
+        from var(--angle),
+        #10805b,
+        rgba(3, 234, 3, 0.2),
+        #10805b
+      );
+      padding: var(--border-width-hover);
+      animation: borderMove 1.5s linear infinite;
+    }
+  }
+
+  .border-gradient-button-fmrp {
+    --border-radius: 6px;
+    --border-width: 1px;
+    --border-width-hover: 2px;
+    --border-color: rgba(9, 9, 11, 0.2);
+
+    position: relative;
+    border: none; /* Đảm bảo không có border mặc định */
+
+    /* Viền gradient chạy quanh */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0px;
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: radial-gradient(
+        50% 93.75% at 50% 6.25%,
+        #0254c5 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor; /* hoặc destination-out */
+      z-index: 0;
+      transition: background 0.5s ease-in-out;
+    }
+
+    &:hover::before {
+      background: conic-gradient(
+        from var(--angle),
+        #c7dffb,
+        rgba(255, 255, 255, 0),
+        #c7dffb
+      );
+      padding: var(--border-width-hover);
+      animation: borderMove 1.5s linear infinite;
+    }
+  }
+
+  .border-gradient-button-fmrp-active {
+    --border-radius: 6px;
+    --border-width: 1px;
+    --border-width-hover: 2px;
+    --border-color: rgba(9, 9, 11, 0.2);
+
+    position: relative;
+    border: none; /* Đảm bảo không có border mặc định */
+
+    /* Viền gradient chạy quanh */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0px;
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: radial-gradient(
+        50% 93.75% at 50% 6.25%,
+        #0254c5 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor; /* hoặc destination-out */
+      z-index: 0;
+      transition: background 0.5s ease-in-out;
+    }
+
+    &::before {
+      background: conic-gradient(
+        from var(--angle),
+        #c7dffb,
+        rgba(255, 255, 255, 0),
+        #c7dffb
+      );
+      padding: var(--border-width-hover);
+      animation: borderMove 1.5s linear infinite;
+    }
+  }
+
+  .border-gradient-orange {
+    --border-radius: 6px;
+    --border-width: 1px;
+    --border-width-hover: 2px;
+    --border-color: rgba(9, 9, 11, 0.2);
+
+    position: relative;
+    border: none; /* Đảm bảo không có border mặc định */
+
+    /* Viền gradient chạy quanh */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0px;
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: radial-gradient(
+        50% 93.75% at 50% 6.25%,
+        #FAC1B7 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor; /* hoặc destination-out */
+      z-index: 0;
+      transition: background 0.5s ease-in-out;
+    }
+
+    &::before {
+      background: conic-gradient(
+        from var(--angle),
+        #FAC1B7,
+        rgba(255, 255, 255, 0),
+        #FAC1B7
+      );
+      padding: var(--border-width-hover);
+      animation: borderMove 1.5s linear infinite;
+    }
+  }
+
+  .border-gradient-black {
+    --border-radius: 16px;
+    --border-width: 1.8px;
+    --border-width-hover: 2px;
+    --border-color: white;
+    --border-inset-hover: 0px;
+
+    position: relative;
+    border: none; /* Đảm bảo không có border mặc định */
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    z-index: 0;
+
+    /* Viền gradient chạy quanh */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0px;
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: conic-gradient(
+        from var(--angle),
+        #38386E 0%,
+        transparent 25%,
+        #ffffff 70%,
+        transparent 75%,
+        #38386E 100%
+      );
+      
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor; /* hoặc destination-out */
+      z-index: -1;
+      /* // animation: moveGradient 2s linear infinite; */
+      animation: borderMove 2s linear infinite;
+    }
+  }
+
+  .border-gradient-button-fmrp-new {
+    --border-radius: 9999px;
+    --border-width: 1.8px;
+    --border-width-hover: 2px;
+    --border-color: white;
+    --border-inset-hover: 0px;
+
+    position: relative;
+    border: none; /* Đảm bảo không có border mặc định */
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    z-index: 0;
+
+    /* Viền gradient chạy quanh */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0px;
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: conic-gradient(
+        from var(--angle),
+        #0254c5 0%,
+        transparent 25%,
+        rgba(3, 110, 234, 0.2) 50%,
+        transparent 75%,
+        #0254c5 100%
+      );
+      
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor; /* hoặc destination-out */
+      z-index: -1;
+      // animation: moveGradient 2s linear infinite;
+      animation: borderMove 2s linear infinite;
+    }
+  }
+
+  @keyframes moveGradient {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: 0% 0;
+    }
+  }
+  .border-gradient-button-no-bg-fmrp {
+    --border-radius: 6px;
+    --border-width: 1px;
+    --border-width-hover: 2px;
+    --border-color: rgba(9, 9, 11, 0.2);
+
+    position: relative;
+    border: none; /* Đảm bảo không có border mặc định */
+
+    /* Viền gradient chạy quanh */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0px;
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: linear-gradient(
+        77.74deg,
+        #0375f3 11.85%,
+        #036eea 20.65%,
+        #0267e1 29.45%,
+        #0261d7 38.25%,
+        #025ace 47.05%,
+        #0254c5 55.84%,
+        #024ebc 64.64%,
+        #0148b3 73.44%,
+        #0142a9 82.24%
+      );
+
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor; /* hoặc destination-out */
+      z-index: 0;
+      transition: background 0.5s ease-in-out;
+    }
+
+    /* Background khi hover */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: rgba(2, 78, 188, 0.1); /* Nền khi hover */
+      // background: "rgba(235, 245, 255, 0.2)"; /* Nền khi hover */
+      opacity: 0; /* Mặc định ẩn */
+      transition: opacity 0.3s ease-in-out;
+      z-index: 1; /* Đặt dưới border */
+    }
+
+    // &:hover::before {
+    //   background: conic-gradient(from var(--angle), #036eea, rgba(3, 110, 234, 0.2), #0254c5);
+    //   padding: var(--border-width-hover);
+    //   animation: borderMove 1.5s linear infinite;
+    // }
+
+    // 💥 Hover từ chính button hoặc từ cha group đều hoạt động
+    &:hover::before,
+    .group:hover &::before {
+      background: conic-gradient(
+        from var(--angle),
+        #036eea 0%,
+        rgba(3, 110, 234, 0.2) 50%,
+        #0254c5 100%
+      );
+      padding: var(--border-width-hover);
+      animation: borderMove 1.5s linear infinite;
+    }
+
+    &:hover::after,
+    .group:hover &::after {
+      opacity: 1;
+    }
+
+    // &:hover::after {
+    //   opacity: 1; /* Hiển thị nền khi hover */
+    // }
+  }
+
+  .border-gradient-button-no-bg-fmrp-gray {
+    --border-radius: 6px;
+    --border-width: 1px;
+    --border-width-hover: 2px;
+    --border-color: rgba(9, 9, 11, 0.2);
+
+    position: relative;
+    border: none; /* Đảm bảo không có border mặc định */
+
+    /* Viền gradient chạy quanh */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0px;
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: #D9E1E7;
+      // background: linear-gradient(
+      //   77.74deg,
+      //   #0375f3 11.85%,
+      //   #036eea 20.65%,
+      //   #0267e1 29.45%,
+      //   #0261d7 38.25%,
+      //   #025ace 47.05%,
+      //   #0254c5 55.84%,
+      //   #024ebc 64.64%,
+      //   #0148b3 73.44%,
+      //   #0142a9 82.24%
+      // );
+
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor; /* hoặc destination-out */
+      z-index: 0;
+      transition: background 0.5s ease-in-out;
+    }
+
+    /* Background khi hover */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: rgba(2, 78, 188, 0.1); /* Nền khi hover */
+      // background: "rgba(235, 245, 255, 0.2)"; /* Nền khi hover */
+      opacity: 0; /* Mặc định ẩn */
+      transition: opacity 0.3s ease-in-out;
+      z-index: 1; /* Đặt dưới border */
+    }
+
+    // &:hover::before {
+    //   background: conic-gradient(from var(--angle), #036eea, rgba(3, 110, 234, 0.2), #0254c5);
+    //   padding: var(--border-width-hover);
+    //   animation: borderMove 1.5s linear infinite;
+    // }
+
+    // 💥 Hover từ chính button hoặc từ cha group đều hoạt động
+    &:hover::before,
+    .group:hover &::before {
+      background: conic-gradient(
+        from var(--angle),
+        #036eea 0%,
+        rgba(3, 110, 234, 0.2) 50%,
+        #0254c5 100%
+      );
+      padding: var(--border-width-hover);
+      animation: borderMove 1.5s linear infinite;
+    }
+
+    &:hover::after,
+    .group:hover &::after {
+      opacity: 1;
+    }
+
+    // &:hover::after {
+    //   opacity: 1; /* Hiển thị nền khi hover */
+    // }
+  }
+
+  .border-gradient-button-no-bg-orange {
+    --border-radius: 6px;
+    --border-width: 1px;
+    --border-width-hover: 2px;
+    --border-color: rgba(9, 9, 11, 0.2);
+
+    position: relative;
+
+    /* Viền gradient chạy quanh */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0px;
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: #D9E1E7;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor; /* hoặc destination-out */
+      z-index: 0;
+      transition: background 0.5s ease-in-out;
+    }
+
+    /* Background khi hover */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: #fac1b75a; /* Nền khi hover */
+      opacity: 0; /* Mặc định ẩn */
+      transition: opacity 0.3s ease-in-out;
+      z-index: 1; /* Đặt dưới border */
+    }
+
+    // 💥 Hover từ chính button hoặc từ cha group đều hoạt động
+    &:hover::before,
+    .group:hover &::before {
+      background: conic-gradient(
+        from var(--angle),
+        #F3654A 0%,
+        #FFB9AC 50%,
+        #FFB9AC 100%
+      );
+      padding: var(--border-width-hover);
+      animation: borderMove 1.5s linear infinite;
+      border: none; /* Đảm bảo không có border mặc định */
+    }
+
+    &:hover::after,
+    .group:hover &::after {
+      opacity: 1;
+      border: none; /* Đảm bảo không có border mặc định */
+    }
+
+  }
+
+  .border-gradient-login {
+    --border-width: 1px;
+    --border-width-hover: 2px;
+    --border-inset: 0px;
+    --border-inset-hover: 0px;
+    --border-color: rgba(9, 9, 11, 0.2);
+
+    position: relative;
+    border: none; /* Đảm bảo không có border mặc định */
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: var(--border-inset);
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: linear-gradient(
+        360deg,
+        rgba(9, 9, 11, 0.05) 0%,
+        rgba(9, 9, 11, 0.1) 100%
+      );
+      pointer-events: none;
+      z-index: 0;
+
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor; /* hoặc destination-out */
+      transition: background 0.5s ease-in-out;
+    }
+
+    &:hover::before {
+      background: conic-gradient(
+        from var(--angle),
+        rgba(9, 9, 11, 0.05) 0%,
+        rgba(255, 255, 255, 0),
+        rgba(9, 9, 11, 0.1) 100%
+      );
+      inset: var(--border-inset-hover);
+      padding: var(--border-width-hover);
+      animation: borderMove 1.5s linear infinite;
+    }
+  }
+
+  .border-gradient-language {
+    --border-width: 1px;
+    --border-width-hover: 2px;
+    --border-inset: -2px;
+    --border-inset-hover: -2px;
+    --border-color: rgba(9, 9, 11, 0.2);
+
+    position: relative;
+    border: none; /* Đảm bảo không có border mặc định */
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: var(--border-inset);
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: linear-gradient(
+        360deg,
+        rgba(9, 9, 11, 0.05) 0%,
+        rgba(9, 9, 11, 0.1) 100%
+      );
+      pointer-events: none;
+      z-index: 0;
+
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor; /* hoặc destination-out */
+      transition: background 0.5s ease-in-out;
+    }
+
+    &:hover::before {
+      background: conic-gradient(
+        from var(--angle),
+        rgba(9, 9, 11, 0.05) 0%,
+        rgba(255, 255, 255, 0),
+        rgba(9, 9, 11, 0.1) 100%
+      );
+      inset: var(--border-inset-hover);
+      padding: var(--border-width-hover);
+      animation: borderMove 1.5s linear infinite;
+    }
+  }
+
+  .border-gradient-freemium-price-list {
+    --border-radius: 16px;
+    --border-width: 3px;
+    --border-width-hover: 2px;
+
+    position: relative;
+    border-radius: var(--border-radius);
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: linear-gradient(
+        270deg,
+        rgba(228, 233, 238, 0) 0%,
+        #e4e9ee 32%,
+        #e4e9ee 61.5%,
+        rgba(228, 233, 238, 0) 100%
+      );
+
+      /* 👇 Mask chỉ để hiện viền trên */
+      mask-image: linear-gradient(
+        to bottom,
+        white 0px,
+        white 4px,
+        transparent 4px
+      );
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        white 0px,
+        white 4px,
+        transparent 4px
+      );
+
+      mask-composite: exclude;
+      -webkit-mask-composite: destination-out;
+
+      z-index: 0;
+      transition: background 0.5s ease-in-out;
+    }
+  }
+  .border-gradient-professional-price-list {
+    --border-radius: 16px;
+    --border-width: 3px;
+    --border-width-hover: 2px;
+
+    position: relative;
+    border-radius: var(--border-radius);
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: var(--border-width);
+      background: linear-gradient(
+        270deg,
+        rgba(1, 61, 160, 0) 0%,
+        #013da0 32%,
+        #013da0 61.5%,
+        rgba(1, 61, 160, 0) 100%
+      );
+
+      /* 👇 Mask chỉ để hiện viền trên */
+      mask-image: linear-gradient(
+        to bottom,
+        white 0px,
+        white 4px,
+        transparent 4px
+      );
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        white 0px,
+        white 4px,
+        transparent 4px
+      );
+
+      mask-composite: exclude;
+      -webkit-mask-composite: destination-out;
+
+      z-index: 0;
+      transition: background 0.5s ease-in-out;
+    }
+  }
+}
+
+/* Animation hiệu ứng viền chạy - tối ưu hóa */
+@keyframes borderMove {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+/* Tối ưu hóa animation performance */
+@keyframes borderMoveOptimized {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.custom-swiper-pagination {
+  .swiper-pagination {
+    @apply relative w-screen text-center z-50 flex items-center gap-2;
+    // @apply md:text-start text-center 3xl:-bottom-[5px] 2xl:bottom-6 xl:bottom-8 lg:bottom-10 bottom-12;
+    .swiper-pagination-bullet {
+      @apply w-full bg-[#D9E1E7] rounded-sm;
+    }
+    .swiper-pagination-bullet-active {
+      // background: linear-gradient(180deg, #0375F3 0%, #013DA0 100%);
+      @apply w-full bg-gradient-to-r from-[#0375F3] to-[#013DA0] rounded-sm;
+    }
+  }
+}
+
+.custom-swiper-project {
+  .swiper-pagination {
+    @apply absolute bottom-2 left-1/2 -translate-x-1/2 w-[80%] mx-auto text-center z-50 flex items-center gap-2;
+    .swiper-pagination-bullet {
+      @apply w-full bg-[#D9E1E7] h-1.5 rounded-sm;
+    }
+    .swiper-pagination-bullet-active {
+      @apply w-full h-1.5 bg-gradient-to-b from-[#9DFFB3] to-[#1AA37A] rounded-sm;
+    }
+  }
+}
+
+.custom-swiper-pagination-fmrp {
+  .swiper-pagination {
+    @apply w-screen text-center bottom-0 z-50;
+    // @apply md:text-start text-center 3xl:-bottom-[5px] 2xl:bottom-6 xl:bottom-8 lg:bottom-10 bottom-12;
+    .swiper-pagination-bullet {
+      @apply w-12 bg-[#bbc3c9] rounded-sm;
+    }
+    .swiper-pagination-bullet-active {
+      background: linear-gradient(180deg, #0375f3 0%, #013da0 100%);
+      @apply w-12 rounded-sm;
+    }
+  }
+}
+
+.custom-swiper-pagination2 {
+  .swiper-pagination2 {
+    @apply w-screen text-center bottom-10 z-[9999];
+    // @apply md:text-start text-center 3xl:-bottom-[5px] 2xl:bottom-6 xl:bottom-8 lg:bottom-10 bottom-12;
+    .swiper-pagination-bullet {
+      @apply w-12 bg-[#bbc3c9] rounded-sm;
+    }
+    .swiper-pagination-bullet-active {
+      background: linear-gradient(180deg, #9dffb3 0%, #1aa37a 100%);
+      @apply w-12 rounded-sm;
+    }
+  }
+}
+
+.custom-arrow {
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.1)); /* Đổ bóng nhẹ */
+  transition: transform 0.2s ease-in-out;
+}
+
+.custom-arrow:hover {
+  transform: scale(1.1);
+}
+
+.TooltipContent {
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.TooltipContent[data-side="top"] {
+  animation-name: slideUp;
+}
+
+.TooltipContent[data-side="bottom"] {
+  animation-name: slideDown;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// animation
+// @keyframes pulse {
+//   0%,
+//   100% {
+//     transform: scale(1);
+//   }
+//   50% {
+//     transform: scale(1.05);
+//   }
+// }
+
+// .hover-pulse:hover {
+//   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+// }
+
+// gradient animation
+.textGradientToBottomRight {
+  background: url(/public/example/gradient/textGradient.jpg) no-repeat;
+  background-size: 200% 200% !important;
+  background-position: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradientToLeft 5s ease-in-out infinite alternate;
+}
+
+/* Animation mượt hơn */
+@keyframes textGradientToLeft {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.custom-box-content::before {
+  content: "";
+  background-image: url("/icons/blog/quote-left.svg");
+  background-position: center;
+  @apply absolute -top-2 left-0 xl:w-[52px] xl:h-[52px] size-10 bg-contain bg-no-repeat z-[1];
+}
+
+@keyframes radialMove {
+  0% {
+    --x: 50%;
+    --y: 0%;
+  }
+  50% {
+    --x: 50%;
+    --y: 100%;
+  }
+  100% {
+    --x: 50%;
+    --y: 0%;
+  }
+}
+
+.animate-radial {
+  animation: radialMove 5s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0% { transform: translateX(0) }
+  50% { transform: translateX(-80%) }
+  100% { transform: translateX(0) }
+}
+
+.wave-1 {
+  animation: wave 10s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.wave-2 {
+  animation: wave 10s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+  animation-delay: 2s;
+}
+
+.wave-3 {
+  animation: wave 10s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+  animation-delay: 4s;
+}
+
+.wave-4 {
+  animation: wave 10s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+  animation-delay: 6s;
+}

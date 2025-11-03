@@ -1,0 +1,35 @@
+'use client';
+
+import React from 'react';
+
+interface PencilSimpleLineIconLinearProps {
+    size?: number;
+    color?: string;
+    className?: string;
+}
+
+const PencilSimpleLineIconLinear: React.FC<PencilSimpleLineIconLinearProps> = ({ size = 32, color = 'currentColor', className = '' }) => {
+    return (
+        <svg
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={className}
+        >
+            <path opacity="0.2" d="M27.7075 11.2925L24 15L17 7.99999L20.7075 4.29249C20.895 4.1051 21.1493 3.99983 21.4144 3.99983C21.6795 3.99983 21.9337 4.1051 22.1213 4.29249L27.7075 9.87499C27.8009 9.96791 27.8749 10.0784 27.9255 10.2C27.976 10.3216 28.002 10.452 28.002 10.5837C28.002 10.7155 27.976 10.8459 27.9255 10.9675C27.8749 11.0891 27.8009 11.1996 27.7075 11.2925Z" fill="url(#paint0_linear_1633_5488)" />
+            <path d="M28.415 9.17125L22.8288 3.58625C22.643 3.40049 22.4225 3.25313 22.1799 3.15259C21.9372 3.05205 21.6771 3.00031 21.4144 3.00031C21.1517 3.00031 20.8916 3.05205 20.6489 3.15259C20.4062 3.25313 20.1857 3.40049 20 3.58625L4.58626 19C4.39973 19.185 4.25185 19.4053 4.15121 19.648C4.05057 19.8907 3.99917 20.151 4.00001 20.4138V26C4.00001 26.5304 4.21072 27.0391 4.5858 27.4142C4.96087 27.7893 5.46958 28 6.00001 28H27C27.2652 28 27.5196 27.8946 27.7071 27.7071C27.8947 27.5196 28 27.2652 28 27C28 26.7348 27.8947 26.4804 27.7071 26.2929C27.5196 26.1054 27.2652 26 27 26H14.415L28.415 12C28.6008 11.8143 28.7481 11.5938 28.8487 11.3511C28.9492 11.1084 29.001 10.8483 29.001 10.5856C29.001 10.3229 28.9492 10.0628 28.8487 9.82016C28.7481 9.57747 28.6008 9.35698 28.415 9.17125ZM6.00001 20.4138L17 9.41375L22.5863 15L11.5863 26H6.00001V20.4138ZM24 13.5863L18.415 8L21.415 5L27 10.5863L24 13.5863Z" fill="url(#paint1_linear_1633_5488)" />
+            <defs>
+                <linearGradient id="paint0_linear_1633_5488" x1="22.501" y1="3.99983" x2="22.501" y2="15" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#9DFFB3" />
+                    <stop offset="1" stopColor="#1AA37A" />
+                </linearGradient>
+                <linearGradient id="paint1_linear_1633_5488" x1="16.5005" y1="3.00031" x2="16.5005" y2="28" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#9DFFB3" />
+                    <stop offset="1" stopColor="#1AA37A" />
+                </linearGradient>
+            </defs>
+        </svg>
+    );
+};
+
+export default PencilSimpleLineIconLinear;

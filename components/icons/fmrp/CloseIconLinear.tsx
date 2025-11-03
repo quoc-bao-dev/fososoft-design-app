@@ -1,0 +1,38 @@
+'use client';
+
+import React from 'react';
+
+interface CloseIconLinearProps {
+    size?: number;
+    color?: string;
+    className?: string;
+}
+
+const CloseIconLinear: React.FC<CloseIconLinearProps> = ({ size = 32, color = 'currentColor', className = '' }) => {
+    return (
+        <svg
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={className}
+        >
+            <g clipPath="url(#clip0_3147_6065)">
+                <path
+                    d="M19.5459 18.1669C19.7572 18.3782 19.876 18.6649 19.876 18.9637C19.876 19.2626 19.7572 19.5493 19.5459 19.7606C19.3346 19.972 19.0479 20.0907 18.749 20.0907C18.4501 20.0907 18.1635 19.972 17.9521 19.7606L12 13.8066L6.0459 19.7587C5.83455 19.9701 5.54791 20.0888 5.24902 20.0888C4.95014 20.0888 4.66349 19.9701 4.45215 19.7587C4.2408 19.5474 4.12207 19.2608 4.12207 18.9619C4.12207 18.663 4.2408 18.3763 4.45215 18.165L10.4062 12.2128L4.45402 6.25875C4.24268 6.0474 4.12395 5.76076 4.12395 5.46187C4.12395 5.16299 4.24268 4.87634 4.45402 4.665C4.66537 4.45365 4.95201 4.33492 5.2509 4.33492C5.54978 4.33492 5.83643 4.45365 6.04777 4.665L12 10.6191L17.954 4.66406C18.1654 4.45272 18.452 4.33398 18.7509 4.33398C19.0498 4.33398 19.3364 4.45272 19.5478 4.66406C19.7591 4.8754 19.8778 5.16205 19.8778 5.46094C19.8778 5.75982 19.7591 6.04647 19.5478 6.25781L13.5937 12.2128L19.5459 18.1669Z"
+                    fill="url(#paint0_linear_3147_6065)"
+                />
+            </g>
+            <defs>
+                <linearGradient id="paint0_linear_3147_6065" x1="12" y1="4.33398" x2="12" y2="20.0907" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#FF9898" />
+                    <stop offset="1" stopColor="#FF4F4F" />
+                </linearGradient>
+                <clipPath id="clip0_3147_6065">
+                    <rect y="0.356445" width="24" height="24" rx="12" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+    );
+};
+
+export default CloseIconLinear;

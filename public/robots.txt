@@ -1,0 +1,12 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /*?bet*
+Disallow: /*?doc*
+Disallow: /*?cwin*
+
+# Host
+Host: https://fososoft.com
+
+# Sitemaps
+Sitemap: https://fososoft.com/sitemap.xml
