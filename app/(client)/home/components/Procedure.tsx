@@ -55,7 +55,7 @@ const stages: ProcessStage[] = [
   {
     icon: <HandCoinIcon />,
     title: "Đưa giải pháp",
-    content: "Đưa đề xuất giải pháp tối ưu về giao diện, tính năng, bảo mật.",
+    content: "Đề xuất giải pháp tối ưu về giao diện, tính năng, bảo mật.",
     bg: "bg-[#FDEAB7]",
     elasticColor: "#FDEAB7",
     baseRotate: 0,
@@ -64,7 +64,7 @@ const stages: ProcessStage[] = [
   {
     icon: <IconSitemap />,
     title: "Lên Sitemap và báo giá",
-    content: "Lên Sitemap và báo giá",
+    content: "Xây dựng Sitemap và cung cấp báo giá minh bạch.",
     bg: "bg-[#D0EFFC]",
     elasticColor: "#D0EFFC",
     disableElastic: true,
