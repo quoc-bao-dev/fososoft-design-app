@@ -1,54 +1,79 @@
-'use client'
-import ButtonAnimationNew from '@/components/common/button/ButtonAnimationNew';
-import ArrowUpRightLinearBlueIcon from '@/components/icons/common/ArrowUpRightLinearBlueIcon';
-import { IMAGES } from '@/constants/Images';
-import { motion } from 'framer-motion';
-import { ArrowUpRightIcon } from 'lucide-react';
-import Image from 'next/image';
+"use client";
+import ButtonAnimationNew from "@/components/common/button/ButtonAnimationNew";
+import ArrowUpRightLinearBlueIcon from "@/components/icons/common/ArrowUpRightLinearBlueIcon";
+import { IMAGES } from "@/constants/Images";
+import { motion } from "framer-motion";
+import { ArrowUpRightIcon } from "lucide-react";
+import Image from "next/image";
 
 const services = [
   {
     icon: IMAGES.edit,
-    title: 'Thiết Kế App iOS & Android',
-    description: 'Giúp doanh nghiệp mở rộng khách hàng và tối ưu trải nghiệm người dùng.',
-    style: 'hover:shadow-[0px_4px_20px_-5px_#C5F0BE,0px_4px_20px_-5px_#C5F0BE]'
+    title: "Thiết Kế App iOS & Android",
+    description:
+      "Giúp doanh nghiệp mở rộng khách hàng và tối ưu trải nghiệm người dùng.",
+    style: "hover:shadow-[0px_4px_20px_-5px_#C5F0BE,0px_4px_20px_-5px_#C5F0BE]",
   },
   {
     icon: IMAGES.pencil,
-    title: 'Thiết Kế Mini App',
-    description: 'Tiết kiệm chi phí, thời gian nhưng vẫn mang lại trải nghiệm tốt khi sử dụng.',
-    style: 'hover:shadow-[0px_4px_20px_-5px_#0375F340,0px_4px_20px_-5px_#0375F340]'
+    title: "Thiết Kế Mini App",
+    description:
+      "Tiết kiệm chi phí, thời gian nhưng vẫn mang lại trải nghiệm tốt khi sử dụng.",
+    style:
+      "hover:shadow-[0px_4px_20px_-5px_#0375F340,0px_4px_20px_-5px_#0375F340]",
   },
   {
     icon: IMAGES.calendar,
-    title: 'Thiết Kế Web App',
-    description: 'Giao diện thân thiện, tương thích đa nền tảng và tối ưu chi phí vận hành.',
-    style: 'hover:shadow-[0px_4px_20px_-5px_#FFD4D3,0px_4px_20px_-5px_#FFD4D3]'
+    title: "Thiết Kế Web App",
+    description:
+      "Giao diện thân thiện, tương thích đa nền tảng và tối ưu chi phí vận hành.",
+    style: "hover:shadow-[0px_4px_20px_-5px_#FFD4D3,0px_4px_20px_-5px_#FFD4D3]",
   },
-]
+];
 
 const Ready = () => {
   return (
-    <div className='relative'>
-      <div className='custom-container-new py-3 xl:py-24 flex flex-col gap-3 justify-center items-center'>
-        <h2 className='text-title-section-small text-[#050505] font-extrabold capitalize'>
-          <span style={{
-            background: "linear-gradient(to bottom, #85EEB3 0%, #53B086 100%), radial-gradient(219.3% 1471.82% at 24.6% -30.56%, rgba(84, 171, 177, 0) 0%, rgba(84, 171, 177, 0.409141) 34.37%, rgba(133, 238, 179, 0.71) 51.52%, rgba(84, 171, 177, 0) 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}>
+    <div className="relative">
+      <div className="custom-container-new py-3 xl:py-24 flex flex-col gap-3 justify-center items-center">
+        <h2 className="text-title-section-small text-[#050505] font-extrabold capitalize">
+          Nền tảng thiết kế app{" "}
+          <span
+            style={{
+              background:
+                "linear-gradient(to bottom, #85EEB3 0%, #53B086 100%), radial-gradient(219.3% 1471.82% at 24.6% -30.56%, rgba(84, 171, 177, 0) 0%, rgba(84, 171, 177, 0.409141) 34.37%, rgba(133, 238, 179, 0.71) 51.52%, rgba(84, 171, 177, 0) 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
             FOSO
-          </span> {' '}
-          sẵn sàng hỗ trợ bạn</h2>
-        <p className='text-base-default text-light-900 font-semibold'>Bạn đang cần tư vấn thêm về báo giá dịch vụ, hướng dẫn sử dụng hoặc trở thành đối tác FOSO - Chúng tôi luôn sẵn sàng kết nối cùng bạn!</p>
-        <div className='flex flex-col items-center gap-6'>
-          <div className='grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-6 pt-0 lg:pt-9 pb-0 lg:pb-4'>
+          </span>{" "}
+          cung cấp
+        </h2>
+        <p className="text-base-default text-light-900 font-semibold">
+          Bạn đang cần tư vấn thêm về báo giá dịch vụ, hướng dẫn sử dụng hoặc
+          trở thành đối tác FOSO - Chúng tôi luôn sẵn sàng kết nối cùng bạn!
+        </p>
+        <div className="flex flex-col items-center gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-6 pt-0 lg:pt-9 pb-0 lg:pb-4">
             {services.map((service, index) => (
-              <div key={index} className={`flex lg:flex-col gap-6 p-3 lg:p-4 xl:p-6 rounded-3xl bg-white cursor-pointer shadow-[0px_4px_20px_-5px_#77729326,0px_4px_20px_-5px_#7772930D] ${service.style}`}>
-                <Image src={service.icon} alt='calendar' width={100} height={100} className='size-[67px] xl:size-[100px]' />
-                <div className='flex flex-col gap-2'>
-                  <h3 className='text-title-section-feature-small text-[#050505] font-extrabold capitalize'>{service.title}</h3>
-                  <p className='text-base-default-feature !text-xs text-light-900 font-medium'>{service.description}</p>
+              <div
+                key={index}
+                className={`flex lg:flex-col gap-6 p-3 lg:p-4 xl:p-6 rounded-3xl bg-white cursor-pointer shadow-[0px_4px_20px_-5px_#77729326,0px_4px_20px_-5px_#7772930D] ${service.style}`}
+              >
+                <Image
+                  src={service.icon}
+                  alt="calendar"
+                  width={100}
+                  height={100}
+                  className="size-[67px] xl:size-[100px]"
+                />
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-title-section-feature-small text-[#050505] font-extrabold capitalize">
+                    {service.title}
+                  </h3>
+                  <p className="text-base-default-feature !text-xs text-light-900 font-medium">
+                    {service.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -105,10 +130,22 @@ const Ready = () => {
           />
         </div>
       </div>
-      <Image src={IMAGES.blurOrange} alt="blurOrange" width={1000} height={1000} className='absolute -top-[55%] left-0 -translate-x-[40%] w-[40%] object-cover z-[-1] pointer-events-none' />
-      <Image src={IMAGES.blurOrange} alt="blurOrange" width={1000} height={1000} className='absolute -bottom-[50%] right-0 translate-x-[40%] w-[40%] object-cover z-[-1] pointer-events-none' />
+      <Image
+        src={IMAGES.blurOrange}
+        alt="blurOrange"
+        width={1000}
+        height={1000}
+        className="absolute -top-[55%] left-0 -translate-x-[40%] w-[40%] object-cover z-[-1] pointer-events-none"
+      />
+      <Image
+        src={IMAGES.blurOrange}
+        alt="blurOrange"
+        width={1000}
+        height={1000}
+        className="absolute -bottom-[50%] right-0 translate-x-[40%] w-[40%] object-cover z-[-1] pointer-events-none"
+      />
     </div>
-  )
-}
+  );
+};
 
-export default Ready
+export default Ready;
